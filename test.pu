@@ -1,0 +1,43 @@
+@startuml name
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "Employee" as e01 {
+  id : integer
+  --
+  family_name : string
+  first_name : string
+  family_name_kana : string
+  first_name_kana : string
+  email : string
+  birthday : date
+  hire_day : date
+  postcode_first3 : integer
+  postcode_last4 : integer
+  prefecture_id : integer <<FK>> ?
+  adress_city : string
+  addres_street : string
+  addres_building : string
+  user_id : integer <<FK>>
+}
+
+entity "Prefecture" as e02 {
+  prefecture_id : integer
+  --
+  name : string
+}
+
+entity "User(会社)" as e03 {
+  user_id : integer
+  --
+  name : string
+  email : string
+  password_digest : string
+}
+
+e02 |o..o{ e01
+e03 |o..o{ e01
+@enduml

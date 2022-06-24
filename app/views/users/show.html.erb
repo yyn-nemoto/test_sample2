@@ -1,0 +1,8 @@
+<h1><%= @user.name %>の従業員一覧</h1>
+
+<% @employees.each do |employee| %>
+  <ul>
+    <li> 名前 : <%= employee.name %> </li>
+    <li> 都道府県 : <%= employee.prefecture.name %> </li>
+  </ul> 
+<% end %>
